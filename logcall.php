@@ -2,6 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
+<link rel="stylesheet" href="navbar.css">
 <title>Police Emergency Service System</title>
 </head>
 
@@ -51,11 +52,11 @@ $conn->close();
 		<table width="45%" border="2" align="center" cellpadding="5" cellspacing="5">
 		<tr>
 		<td width="20%" align="center">Name of Caller:</td>
-			<td width="50%"><input type="text" name="callerName" id="callername" pattern="[A -z]+" required </td>
+			<td width="50%"><input type="text"  name="callerName" id="callerName" pattern="[a-zA-Z- ]+" oninvalid="setCustomValidity('Please enter on alphabets only. ')" onkeypress="return onlyAlphabets(event,this);"> </td>
 			</tr>
 			<tr>
 				<td width="20%" align="center">Contact Number:</td>
-				<td width="50%"><input type ="text" name="contactNo" id="contactNo" pattern="[0-9]+" minlength="8" maxlength="8" required></td>
+				<td width="50%"><input type ="text" name="contactNo" id="contactNo" pattern="[6,8,9]{1}[0-9]{7}" title="Please enter a phone number starting with 6, 8 or 9" minlength="8" maxlength="8"  required></td>
 					</tr>
 			<tr>
 			<td width="50%" align="center">Location:</td>
@@ -71,7 +72,7 @@ $conn->close();
 			</tr>
 			<tr>
 			<td width="50%" align="center">Description:</td>
-			<td width="50%"><textarea name="incidentDesc" id="incidentDesc" cols="45" rows="5" maxlength="100" required></textarea></td>
+			<td width="50%"><textarea name="incidentDesc" id="incidentDesc" cols="45" rows="5" required></textarea></td>
 			</tr>
 			<tr>
 				<table width="40%" border="0" align="center" cellpadding="5" cellspacing="5">
@@ -86,5 +87,25 @@ $conn->close();
 			</table>
 		</form>
 	</fieldset>
+	<script>
+	function onlyAlphabets(e, t) {
+            try {
+                if (window.event) {
+                    var charCode = window.event.keyCode;
+                }
+                else if (e) {
+                    var charCode = e.which;
+                }
+                else { return true; }
+                if ((charCode > 64 && charCode < 91) || (charCode > 96 && charCode < 123) || charCode == 32)
+                    return true;
+                else
+                    return false;
+            }
+            catch (err) {
+                alert(err.Description);
+            }
+        }
+	</script>
 </body>
 </html>
