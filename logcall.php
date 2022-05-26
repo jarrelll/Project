@@ -52,7 +52,8 @@ $conn->close();
 		<table width="45%" border="2" align="center" cellpadding="5" cellspacing="5">
 		<tr>
 		<td width="20%" align="center">Name of Caller:</td>
-			<td width="50%"><input type="text"  name="callerName" id="callerName" pattern="[a-zA-Z- ]+" oninvalid="setCustomValidity('Please enter on alphabets only. ')" onkeypress="return onlyAlphabets(event,this);"> </td>
+			<td width="50%"><input type="text"  name="callerName" id="callerName" oninvalid="setCustomValidity('Please enter on alphabets only. ')" onkeypress="return onlyAlphabets(event,this);" required> 
+			</td>
 			</tr>
 			<tr>
 				<td width="20%" align="center">Contact Number:</td>
@@ -80,7 +81,7 @@ $conn->close();
 					<input type="reset" name="cancelProcess" id="cancelProcess" value="Reset"
 					</td>
 					<td align="center">
-					<input type='submit' name="btnProcessCall" id="btnProcessCall" value="Process Call"A
+					<input type='submit' name="btnProcessCall" id="btnProcessCall" value="Process Call"
 					</td>
 				</table>
 			</tr>
